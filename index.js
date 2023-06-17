@@ -1,6 +1,14 @@
-const MacchinaCaffe = function (accesa, sceltaCaffe) {
+
+const caffeCorto = document.querySelector('.caffeCorto');
+const caffeLungo = document.querySelector('.caffeLungo');
+const avvisi = document.querySelector('.avvisi');
+const onOff = document.querySelector('.onOff');
+const riempireSerbatoio = document.querySelector('.riempireSerbatoio');
+
+
+const MacchinaCaffe = function (accesa, LivelloAcqua) {
     this.accesa = accesa;
-    this.sceltaCaffe = sceltaCaffe;
+    this.LivelloAcqua = LivelloAcqua;
 }
 
 MacchinaCaffe.prototype.accendi = function () {
@@ -8,43 +16,74 @@ MacchinaCaffe.prototype.accendi = function () {
     console.log(`${this.accesa ? 'accesa' : 'spenta'}`)
 }
 
-MacchinaCaffe.prototype.selezioneCaffe = function () {
-    if (this.accesa) {
-        setTimeout(() => {
-            //if(){ risultato.innerText = "Caffe corto ☕"}
-           // if (this.sceltaCaffe) { risultato.innerText = `${this.sceltaCaffe}` }
-           this.sceltaCaffe;
-        }, 3000);
+MacchinaCaffe.prototype.acquaSerbatoio = function () {
+    if (this.LivelloAcqua <= 0) {
+        avvisi.innerText = "Il serbatoio d'acqua è vuoto";
+        return this.LivelloAcqua = 0;
+    }
 
+}
+
+MacchinaCaffe.prototype.riempeSebatoio = function () {
+    this.LivelloAcqua += 1;
+    if (this.LivelloAcqua >= 1) {
+        avvisi.innerText = "";
+        if (this.LivelloAcqua >= 10) {
+            avvisi.innerText = 'Il serbatoio è pieno';
+            return this.LivelloAcqua = 10;
+        }
+    }
+    console.log(this.LivelloAcqua)
+}
+
+MacchinaCaffe.prototype.caffeCorto = function () {
+    if (this.accesa && this.LivelloAcqua) {
+        setTimeout(() => {
+            avvisi.innerText = "Caffe corto ☕"
+            this.LivelloAcqua -= 1;
+            macchinettaCaffe.acquaSerbatoio();
+            console.log(this.LivelloAcqua)
+
+        }, 3000);
     }
 }
-const risultato = document.querySelector('.risultato');
 
-const sceltaCaffe = document.querySelectorAll('.scelta');
-sceltaCaffe.forEach(scelta => {
-    scelta.addEventListener('click', () => {
-        switch (scelta) {
-            case "caffeCorto":
-                console.log("caffe corto");
-                break;
-            case "caffeLungo":
-                console.log("caffe lungo");
-                break
-        }
-        macchinetaCaffe.selezioneCaffe();
-    })
+MacchinaCaffe.prototype.caffeLungo = function () {
+    if (this.accesa && this.LivelloAcqua) {
+        setTimeout(() => {
+            avvisi.innerText = "Caffe Lungo ☕"
+            this.LivelloAcqua -= 1;
+            macchinettaCaffe.acquaSerbatoio();
+
+            console.log(this.LivelloAcqua)
+
+
+        }, 3000);
+    }
+}
+
+
+caffeCorto.addEventListener('click', () => {
+    macchinettaCaffe.caffeCorto();
+})
+caffeLungo.addEventListener('click', () => {
+    macchinettaCaffe.caffeLungo();
 })
 
-
-const onOff = document.querySelector('.onOff');
 onOff.addEventListener('click', (event) => {
     event.preventDefault();
-    macchinetaCaffe.accendi();
+    macchinettaCaffe.accendi();
 })
-const macchinetaCaffe = new MacchinaCaffe(false);
+
+riempireSerbatoio.addEventListener('click', () => {
+    macchinettaCaffe.riempeSebatoio();
+})
 
 
 
+const macchinettaCaffe = new MacchinaCaffe(false, 1);
+
+macchinettaCaffe.acquaSerbatoio();
 
 
 
