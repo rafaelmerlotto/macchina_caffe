@@ -1,5 +1,4 @@
 * {
-
   box-sizing: border-box;
 }
 
@@ -8,9 +7,8 @@ body {
   display: flex;
   align-items: center;
   flex-direction: column;
-  background-color: #1499bb;
+  background-color: #faf0ca;
   font-family: 'Open Sans', sans-serif;
-  ;
 }
 
 .container {
@@ -19,7 +17,7 @@ body {
   align-items: center;
   margin: auto;
   flex-direction: column;
-margin-bottom: 150px;
+  margin-bottom: 150px;
   height: 500px;
   width: 500px;
 }
@@ -60,13 +58,20 @@ button {
   border: 1px solid black;
 }
 
+.cialda {
+  background-color: #9ea8b4;
+  border-radius: 130px;
+}
+
+
+
 .onOff {
   background-color: red;
 }
 
 .riempireSerbatoio {
   background-color: #049ce8;
-  margin-bottom: 50px;
+  margin-bottom: 10px;
   padding: 10px;
 }
 
@@ -78,7 +83,6 @@ button {
   border: 1px solid black;
   border-radius: 40px;
   margin-left: 400px;
-
 }
 
 .livelloSerbatoio {
@@ -89,10 +93,75 @@ button {
   align-items: center;
   background-color: #049ce8;
   border-radius: 40px;
-
+   color: white;
+  font-size: 16px;
+  font-weight: bold;
+}
+.avvisi{
+ text-align: center;
+height: 50px;
 }
 .output-caffe{
-  width: 200px;
-  width: 200px;
-  font-size: 30px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tazza {
+  height: 210px;
+  width: 220px;
+  border: 10px solid #030303;
+  position: absolute !important;
+  transform: translate(-50%, -50%);
+ 
+  border-radius: 20px 20px 60px 60px;
+
+ 
+}
+.tazza::before{
+  content: "";
+  position: absolute;
+  height: 80px;
+  width: 60px;
+  border: 10px solid #030303;
+  border-left: none;
+  right: -70px;
+  top: 30px;
+  border-radius: 0 30px 80px 0;
+}
+.tazza::after{
+  position: absolute;
+  content: "";
+  height: 10px;
+  width: 300px;
+  background-color: #030303;
+  left: -45px;
+  bottom: -10px;
+  border-radius: 10px;
+}
+.coffeeCorto{
+  height: 90px;
+  width: 201px;
+  background-color: #6f4e37 ;
+  border: 10px solid transparent;
+  border-radius: 5px 5px 50px 50px;
+  position: absolute;
+ bottom: 0;
+}
+.coffeeLungo{
+  height: 170px;
+  width: 201px;
+  background-color: #6f4e37 ;
+  border: 10px solid transparent;
+  border-radius: 5px 5px 50px 50px;
+  position: absolute;
+ bottom: 0;
+
+}
+
+
+span{
+  margin-top: 0;
+  margin-right: 190px;
 }

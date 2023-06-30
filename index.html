@@ -4,19 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Macchina Caffè</title>
+    <title>Macchinetta Caffè</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <h3>Macchina Caffè</h3>
+    <h2>Macchinetta Caffè</h2>
 
     <section class="container">
-        <div class="avvisi"></div>
+
         <div class="selezionareTipoCaffe">
             <button class="caffeCorto">Caffè corto</button>
             <button class="caffeLungo">Caffè lungo</button>
-            <button class="cappuccino">Latte</button>
+            <button class="cialda">Cialda</button>
             <div class="accendiSpengni">
                 <button class="onOff">ON OFF </button>
             </div>
@@ -24,13 +24,21 @@
 
         <div class="acqua">
             <button class="riempireSerbatoio">Acqua</button>
+            <div class="avvisi"></div>
             <div class="livelloSerbatoio">0</div>
         </div>
 
 
 
-        <div class="output-caffe"></div>
+        <div class="output-caffe">
+            <div class="tazza">
 
+                <div class="coffeeCorto" hidden></div>
+                <div class="coffeeLungo" hidden></div>
+            </div>
+
+        </div>
+        <span>Clicca sulla tazza per bere il tuo caffè</span>
     </section>
 
 
